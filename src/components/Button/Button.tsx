@@ -1,13 +1,12 @@
-import React from "react";
+import React, { ReactNode } from "react";
 
-import styles from './Button.scss';
+import './Button.css';
 
 export type ButtonProps = {
-    label: string;
+    children: ReactNode;
+    onClick: () => void;
 };
 
-const Button = (props: ButtonProps) => {
-    return <button className={styles.Button}>{props.label}</button>;
+export const Button = ({children, ...rest}: ButtonProps) => {
+    return <button className='Button' {...rest}>{children}</button>;
 };
-
-export default Button;
